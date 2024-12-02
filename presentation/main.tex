@@ -1,0 +1,190 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{template/sps_beamer}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+
+\title{\LaTeX Workshop}
+% \subtitle{Subtitle}
+\author{Jose N. Filipe}
+\date{4 December 2024}
+
+
+
+\begin{document}
+% COVER
+{
+% Use simple cover 
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth]{template_background/beamer_sps_cover_simple.pdf}}
+% Use simple cover with IPL logo
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_cover_simple_ipl.pdf}}
+% Use cover with some images
+% \usebackgroundtemplate{\includegraphics[width=\paperwidth]{template_background/beamer_sps_cover.pdf}}
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+% TABLE OF CONTENTS
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_final.pdf}}
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+% Uncomment this to get table of contents on each section
+
+% \AtBeginSection[]
+% {
+%   \begin{frame}
+%     \frametitle{Table of Contents}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
+}
+
+%CONTENT
+
+
+\section{Introduction}
+\begin{frame}{Text}{Subtitle}
+
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur viverra pulvinar. In pharetra at magna ac luctus. Curabitur a massa non ligula tristique dignissim. Sed vitae feugiat magna. Ut.
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nibh enim, posuere id felis nec.
+\end{frame}
+
+
+
+
+
+
+
+\subsection{Lists}
+
+\begin{frame}{Lists}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidunt enim sed sagittis. Proin feugiat nunc at pretium consectetur.
+    \begin{itemize}
+        \item Hello item!
+        \begin{itemize}
+            \item Hello subitem!
+            \begin{itemize}
+                \item Hello subsubitem!
+                \item Hello second subsubitem!
+            \end{itemize}
+            \item Hello second subitem!
+        \end{itemize}
+        \item Hello second item!
+    \end{itemize}
+\end{frame}
+
+\subsection{Numbered Lists}
+\begin{frame}{Numbered Lists}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidunt enim sed sagittis. Proin feugiat nunc at pretium consectetur.
+    \begin{enumerate}
+        \item Hello item!
+        \begin{enumerate}
+            \item Hello subitem!
+            \begin{enumerate}
+                \item Hello subsubitem!
+                \item Hello second subsubitem!
+            \end{enumerate}
+            \item Hello second subitem!
+        \end{enumerate}
+        \item Hello second item!
+    \end{enumerate}
+
+\end{frame}
+
+\section{Equations}
+
+\begin{frame}{Equations}
+
+    \begin{itemize}
+        \item Gauss's Law
+        \begin{equation*}
+            \nabla \cdot \overset{\rightarrow}{\textbf{E}} = \frac{\rho}{\epsilon_0}
+        \end{equation*}
+        \item Gauss's Law for Magnetism
+        \begin{equation*}
+            \nabla \cdot \overset{\rightarrow}{\textbf{B}} = 0
+        \end{equation*}
+        \item Faraday's Law
+        \begin{equation*}
+            \nabla \times \overset{\rightarrow}{\textbf{E}}=- \frac{\partial \overset{\rightarrow}{\textbf{B}}}{\partial t}
+        \end{equation*}
+        \item Ampère's Law
+        \begin{equation*}
+            \nabla \times \overset{\rightarrow}{\textbf{B}}=\mu_0\overset{\rightarrow}{\textbf{J}}+\mu_0\epsilon_0\frac{\partial \overset{\rightarrow}{\textbf{E}}}{\partial t}
+        \end{equation*}
+    \end{itemize}
+    
+\end{frame}
+
+\section{Images}
+
+\begin{frame}{Images}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{template/sps_logo.png}
+\end{figure}
+
+\end{frame}
+
+\subsection{Subfigures}
+
+\begin{frame}{Subfigures}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{template/sps_logo.png}
+    \end{subfigure}
+    \hfill 
+    \begin{subfigure}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{template/sps_logo.png}
+    \end{subfigure}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Tables}
+    \begin{table}[ht]
+        \begin{tabular}{l|cc}
+        \toprule
+            \textbf{Law} & \textbf{Differential form} & \textbf{Integral form}   \\ \midrule
+            Gauss            & $\nabla \cdot \overset{\rightarrow}{\textbf{E}} = \frac{\rho}{\epsilon_0}$            & $\int_S \overset{\rightarrow}{\textbf{E}}\cdot\hat{n}\;\mathsf{dS}=\frac{\textbf{Q}}{\epsilon_0}$        \\
+            Gauss for Magnetism            & $\nabla \cdot \overset{\rightarrow}{\textbf{B}} = 0$          & $\int_S \overset{\rightarrow}{\textbf{B}}\cdot\hat{n}\;\mathsf{dS} = 0$ \\
+            Faraday            & $\nabla \times \overset{\rightarrow}{\textbf{E}}=- \frac{\partial \overset{\rightarrow}{\textbf{B}}}{\partial t}$            & $\oint \overset{\rightarrow}{\textbf{E}}\cdot\mathsf{d \overset{\rightarrow}{r}} = - \frac{d}{dt} \int_S \overset{\rightarrow}{\textbf{B}}\cdot\hat{n}\;\mathsf{dS}$ \\
+            Ampère            & $\nabla \times \overset{\rightarrow}{\textbf{B}}=\mu_0\overset{\rightarrow}{\textbf{J}}+\mu_0\epsilon_0\frac{\partial \overset{\rightarrow}{\textbf{E}}}{\partial t}$            & $\oint \overset{\rightarrow}{\textbf{B}}\cdot\mathsf{d \overset{\rightarrow}{r}} = \mu_0\textbf{I} + \mu_0 \epsilon_0\int_S \overset{\rightarrow}{\textbf{E}}\cdot\hat{n}\;\mathsf{dS}$ \\ \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+
+
+\section{Thank you}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_final.pdf}}
+
+\begin{frame}
+\centering
+{\Huge\usebeamercolor[fg]{frametitle}\textbf{Thank You}}
+\end{frame}
+}
+
+
+
+
+\end{document}

@@ -1,0 +1,95 @@
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_content.pdf}}
+
+% Colours
+\definecolor{frametitle}{HTML}{00619B}
+\definecolor{textcolour}{HTML}{58595B}
+\definecolor{numbercolour}{HTML}{AFABAB}
+\definecolor{bulletcolour}{HTML}{971D96}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=white}
+\setbeamercolor{frametitle}{fg=frametitle}
+\setbeamercolor{framesubtitle}{fg=frametitle}
+\setbeamercolor{normal text}{fg=textcolour}
+\setbeamercolor{page number in head/foot}{fg=numbercolour}
+\setbeamertemplate{itemize item}{\color{bulletcolour}\scalebox{0.7}{$\blacksquare$}} 
+\setbeamertemplate{itemize subitem}{\color{bulletcolour}\scalebox{0.6}{$\blacksquare$}} 
+\setbeamertemplate{itemize subsubitem}{\color{bulletcolour}\scalebox{0.5}{$\blacksquare$}} 
+\setbeamercolor{enumerate item}{fg=bulletcolour}
+\setbeamercolor{enumerate subitem}{fg=bulletcolour}
+\setbeamercolor{enumerate subsubitem}{fg=bulletcolour}
+
+
+% Fonts and sizes
+\usepackage{txfonts}
+\DeclareSymbolFontAlphabet{\mathnormal}{letters}
+
+\setbeamerfont{frametitle}{size=\fontsize{25pt}{10}\selectfont,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\fontsize{25pt}{10}\selectfont,series=\bfseries}
+\setbeamerfont{title}{size=\fontsize{23pt}{10}\bfseries}
+\setbeamerfont{date}{size=\fontsize{7pt}{10}\selectfont}
+\setbeamerfont{author}{size=\fontsize{15pt}{10}\bfseries}
+
+
+
+% Positions
+\setbeamerfont{frametitle}{size=\fontsize{15pt}{10}\selectfont,series=\bfseries}
+\setbeamertemplate{frametitle}{\vspace*{1.5em}\hspace*{-0.5em}\insertframetitle}
+
+% Numbering
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \ifnum\value{framenumber}>1
+            \hspace*{1em} 
+            \usebeamercolor[fg]{page number in head/foot}
+            \fontsize{10pt}{12pt}\selectfont
+            \textbf{\insertframenumber}
+        \fi
+    }%
+    \vskip2.35ex 
+}
+
+
+
+% Cover
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+    \begin{tikzpicture}[remember picture, overlay]
+        % \foreach \x in {0,...,16} \path (current page.south west) +(\x,0.25) node {\small$\x$};
+        % \foreach \y in {0,...,9} \path (current page.south west) +(0.25,\y) node {\small$\y$};
+        % \foreach \x in {0,0.5,...,16.5} \draw (current page.south west) ++(\x,0) -- +(0,16.5);
+        % \foreach \y in {0,0.5,...,9.5} \draw (current page.south west) ++(0,\y) -- +(16.5,0);
+        
+        
+        \linespread{1.5} % Adjust factor as needed (1.5 = 150% spacing)
+        \draw (current page.south west) +(1, 4.25) node[anchor=south west, text width=9cm, align=left] {
+            \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+        };
+        \draw (current page.south west) +(1.7, 3.15) node[anchor=south west] {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor};
+        
+        \draw (current page.south west) +(1.7, 2.75) node[anchor=south west] {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate};
+    \end{tikzpicture}
+}
+
+
+% Table of contents
+
+\setbeamertemplate{section in toc}{%
+    \leavevmode\leftskip=-2em%
+    \hspace{5pt}
+    \llap{\color{bulletcolour}\scalebox{0.7}{$\blacksquare$}}% Define a custom bullet point
+    \hspace{2pt}
+    {\large\usebeamercolor[fg]{frametitle}\inserttocsection}% Inserts the section title
+}
+\setbeamertemplate{subsection in toc}{%
+    \vspace{3pt}%
+    \leavevmode\leftskip=3em%
+    % \hspace{25pt}%
+    \llap{\color{bulletcolour}\scalebox{0.6}{$\blacksquare$}}% Define a custom bullet for subsections
+    \hspace{5pt}%
+    \inserttocsubsection%
+    \par% Forces a new paragraph, ensuring a line break after each subsection
+}
+
