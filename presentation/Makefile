@@ -10,6 +10,7 @@ all: main
 main: $(MAIN_FILE)
 		@mkdir -p $(BUILD_DIR)
 		latexmk -pdf -output-directory=$(BUILD_DIR) $(MAIN_FILE)
+		cp $(MAIN_PDF) ../
 		open $(MAIN_PDF) &
 
 clean:

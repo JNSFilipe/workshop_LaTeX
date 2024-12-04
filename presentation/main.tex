@@ -194,7 +194,7 @@
             \item Commands start with \mintinline{tex}{\}
             \begin{itemize}
                 \item \textbf{\underline{Almost every direct interface with \LaTeX \ starts with the }}\mintinline{tex}{\}
-                \item To escape the escape character: \mintinline{tex}{\\}
+                \item To write the escape character: \mintinline{tex}{\textbackslash}
             \end{itemize}
             \item Followed by the command name
             \item Optional arguments are enclosed in square brackets \mintinline{tex}{[...]}
@@ -218,7 +218,7 @@
         \item Start with \mintinline{latex}{\begin{environment}} and end with \mintinline{latex}{\end{environment}}
         \item The environment name must match in both \mintinline{latex}{\begin{...}} and \mintinline{latex}{\end{...}}
         \item Some environments accept optional arguments in square brackets \texttt{[...]}
-        \item Common environments: mintinline{latex}{itemize}, mintinline{latex}{enumerate}, mintinline{latex}{figure}, mintinline{latex}{table}, mintinline{latex}{equation}, etc.
+        \item Common environments: \mintinline{latex}{itemize}, \mintinline{latex}{enumerate}, \mintinline{latex}{figure}, \mintinline{latex}{table}, \mintinline{latex}{equation}, etc.
     \end{itemize}
 \end{frame}
 
@@ -355,8 +355,8 @@
 
 \begin{frame}[fragile]{References}
     \begin{minted}{tex}
-
         \documentclass[12pt]{article}
+        \usepackage{graphicx}
 
         \begin{document}
             \begin{figure}
@@ -399,6 +399,7 @@
 \begin{frame}[fragile]{Packages and Clever References}
     \begin{minted}{tex}
         \documentclass[12pt]{article}
+        \usepackage{graphicx}
         \usepackage{cleveref}
 
         \begin{document}
