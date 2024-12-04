@@ -1,22 +1,25 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage{template/sps_beamer}
-\usepackage{graphicx}
-\usepackage{tikz}
 \usepackage{subcaption}
 \usepackage{booktabs}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{tikz}
 
 
-\title{\LaTeX Workshop}
+\title{\LaTeX \ Workshop}
 % \subtitle{Subtitle}
 \author{Jose N. Filipe}
 \date{4 December 2024}
 
-
+% Enable Numbers in floats!
+\setbeamertemplate{caption}[numbered]{}
 
 \begin{document}
 % COVER
 {
-% Use simple cover 
+% Use simple cover
 % \usebackgroundtemplate{\includegraphics[width=\paperwidth]{template_background/beamer_sps_cover_simple.pdf}}
 % Use simple cover with IPL logo
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_cover_simple_ipl.pdf}}
@@ -37,128 +40,642 @@
 
 % Uncomment this to get table of contents on each section
 
-% \AtBeginSection[]
-% {
-%   \begin{frame}
-%     \frametitle{Table of Contents}
-%     \tableofcontents[currentsection]
-%   \end{frame}
-% }
+}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
 }
 
 %CONTENT
 
 
 \section{Introduction}
-\begin{frame}{Text}{Subtitle}
 
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur viverra pulvinar. In pharetra at magna ac luctus. Curabitur a massa non ligula tristique dignissim. Sed vitae feugiat magna. Ut.
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nibh enim, posuere id felis nec.
-\end{frame}
-
-
-
-
-
-
-
-\subsection{Lists}
-
-\begin{frame}{Lists}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidunt enim sed sagittis. Proin feugiat nunc at pretium consectetur.
+\begin{frame}{\LaTeX: How and Why?}
     \begin{itemize}
-        \item Hello item!
-        \begin{itemize}
-            \item Hello subitem!
+        \item \textbf{Origins:}
             \begin{itemize}
-                \item Hello subsubitem!
-                \item Hello second subsubitem!
+                \item Developed by \textbf{Leslie Lamport} in 1984
+                \item Built on top of Donald Knuth's \textbf{TeX} typesetting system (1978)
             \end{itemize}
-            \item Hello second subitem!
-        \end{itemize}
-        \item Hello second item!
+        \item \textbf{Purpose:}
+            \begin{itemize}
+                \item Simplify the creation of complex documents
+                \item Provide superior control over document layout and formatting
+            \end{itemize}
+        \item \textbf{Why:}
+            \begin{itemize}
+                \item Many packages to do what you probably want to do
+                \item No need to worry about formatting: someone does the template, you just write
+            \end{itemize}
     \end{itemize}
 \end{frame}
 
-\subsection{Numbered Lists}
-\begin{frame}{Numbered Lists}
+\begin{frame}{\LaTeX: How and Why? What about Word?}
+    \begin{itemize}
+        \item \textbf{Superior Typesetting Quality:}
+            \begin{itemize}
+                \item Professional and consistent formatting
+                \item Optimal handling of mathematical equations and symbols
+            \end{itemize}
+        \item \textbf{Automated Document Management:}
+            \begin{itemize}
+                \item Automatic numbering of sections, figures, tables, and references
+                \item Easy generation of tables of contents, bibliographies, and indexes
+            \end{itemize}
+        \item \textbf{Version Control Compatibility:}
+            \begin{itemize}
+                \item Plain text files integrate seamlessly with version control systems (e.g., Git)
+            \end{itemize}
+        \item \textbf{Stability and Consistency:}
+            \begin{itemize}
+                \item Consistent output across different platforms and devices
+                \item Minimal formatting issues when sharing documents
+            \end{itemize}
+        \item \textbf{Focus on Content:}
+            \begin{itemize}
+                \item Encourages separation of content and styling
+                \item Reduces distractions from formatting during the writing process
+            \end{itemize}
+    \end{itemize}
+\end{frame}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidunt enim sed sagittis. Proin feugiat nunc at pretium consectetur.
-    \begin{enumerate}
-        \item Hello item!
-        \begin{enumerate}
-            \item Hello subitem!
+\section{Hello World!}
+
+\begin{frame}[fragile]{The Overleaf Minimum}
+    % \begin{lstlisting}[language=TeX, caption=Hello World!]
+    \begin{minted}{tex}
+        \documentclass{article}
+        \usepackage{graphicx} % Required for inserting images
+
+        \title{Latex workshop}
+        \author{José Filipe}
+        \date{December 2024}
+
+        \begin{document}
+
+        \maketitle
+
+        \section{Introduction}
+
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{The Bare Bones}
+    % \begin{lstlisting}[language=TeX, caption=Hello World!]
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            Hello world!
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\section{The Basics}
+
+\begin{frame}[fragile]{Paragraphs and linebreaks}
+    \begin{itemize}
+        \item One ``enter'' does nothing
+        \item Blank line to create new paragraph
+        \item \mintinline{latex}{\\} or \mintinline{latex}{\linebreak} for break a line
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Paragraphs and linebreaks}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            Lorem ipsum odor amet, consectetuer adipiscing elit.
+            Donec proin hac nostra suspendisse nunc facilisis quisque.
+
+            Faucibus metus justo varius \linebreak pretium
+            erat viverra auctor.
+            Habitasse quis purus iaculis \\ condimentum at
+            inceptos magnis.
+        \end{document}
+    \end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{Bold, italics, and underlines}
+    \begin{itemize}
+        \item \mintinline{latex}{\textbf{...}} bold text
+        \item \mintinline{latex}{\textit{...}} italic text
+        \item \mintinline{latex}{\underline{...}} underline text
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Bold, italics, and underlines}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            Lorem \textbf{ipsum odor} amet,
+            consectetuer \textit{adipiscing} elit.
+
+            Donec proin hac \underline{nostra} suspendisse
+            nunc \textbf{\textit{\underline{facilisis quisque}}}.
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Generalising Commands}
+    \begin{itemize}
+        \item As you probably noticed by now...
+        \begin{itemize}
+            \item There is an escape character: \mintinline{tex}{\}
+            \item Commands start with \mintinline{tex}{\}
+            \begin{itemize}
+                \item \textbf{\underline{Almost every direct interface with \LaTeX \ starts with the }}\mintinline{tex}{\}
+                \item To escape the escape character: \mintinline{tex}{\\}
+            \end{itemize}
+            \item Followed by the command name
+            \item Optional arguments are enclosed in square brackets \mintinline{tex}{[...]}
+            \item Arguments are enclosed in curly braces \mintinline{tex}{{...}}
+            \item Multiple arguments are provided sequentially
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Generalising Commands}
+    \begin{centering}
+        \begin{minted}{tex}
+            \comandName[opt. 1, opt. 2, ...]{arg. 1}{arg. 2}...
+        \end{minted}
+    \end{centering}
+\end{frame}
+
+\begin{frame}[fragile]{Another \LaTeX \ interface: Environments}
+    \begin{itemize}
+        \item Define blocks of content with specific formatting or behaviour
+        \item Start with \mintinline{latex}{\begin{environment}} and end with \mintinline{latex}{\end{environment}}
+        \item The environment name must match in both \mintinline{latex}{\begin{...}} and \mintinline{latex}{\end{...}}
+        \item Some environments accept optional arguments in square brackets \texttt{[...]}
+        \item Common environments: mintinline{latex}{itemize}, mintinline{latex}{enumerate}, mintinline{latex}{figure}, mintinline{latex}{table}, mintinline{latex}{equation}, etc.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+
+            \begin{itemize}
+                \item Lorem ipsum odor amet
+                \item Justo sed duis purus
+                \begin{itemize}
+                    \item Consectetuer adipiscing elit
+                    \item Donec proin hac nostra suspendisse
+                \end{itemize}
+                \item Nunc facilisis quisque
+            \end{itemize}
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Lists}
+    \begin{itemize}
+        \item Lorem ipsum odor amet
+        \item Justo sed duis purus
+        \begin{itemize}
+            \item Consectetuer adipiscing elit
+            \item Donec proin hac nostra suspendisse
+        \end{itemize}
+        \item Nunc facilisis quisque
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Numbered Lists}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+
             \begin{enumerate}
-                \item Hello subsubitem!
-                \item Hello second subsubitem!
+                \item Lorem ipsum odor amet
+                \item Justo sed duis purus
+                \begin{enumerate}
+                    \item Consectetuer adipiscing elit
+                    \item Donec proin hac nostra suspendisse
+                \end{enumerate}
+                \item Nunc facilisis quisque
             \end{enumerate}
-            \item Hello second subitem!
-        \end{enumerate}
-        \item Hello second item!
-    \end{enumerate}
+        \end{document}
+    \end{minted}
+\end{frame}
 
+\begin{frame}[fragile]{Numbered Lists}
+    \begin{enumerate}
+        \item Lorem ipsum odor amet
+        \item Justo sed duis purus
+        \begin{enumerate}
+            \item Consectetuer adipiscing elit
+            \item Donec proin hac nostra suspendisse
+        \end{enumerate}
+        \item Nunc facilisis quisque
+    \end{enumerate}
+\end{frame}
+
+\section{Figures, References, and Packages}
+
+\begin{frame}[fragile]{Figures}
+    \begin{minted}{tex}
+
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\columnwidth]{Figures/sps_logo}
+                \caption{Logo IEEE SPS.}
+            \end{figure}
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Figures}
+    \begin{itemize}
+        \item Use a \mintinline{tex}{figure} environment
+        \item \mintinline{tex}{\centering}:
+            \begin{itemize}
+                \item Centers the content within the \mintinline{tex}{figure} environment
+                \item Ensures the image is horizontally aligned in the middle of the page or column
+            \end{itemize}
+
+        \item \mintinline{tex}{\includegraphics}:
+            \begin{itemize}
+                \item Inserts an image into the document
+                \item Commonly used options:
+                    \begin{itemize}
+                        \item \texttt{width}: Specifies the width of the image (e.g., \mintinline{latex}{width=0.5\columnwidth})
+                        \item \texttt{height}: Specifies the height of the image
+                        \item \texttt{scale}: Scales the image by a factor
+                \end{itemize}
+            \item Takes path to image as argument (inside \mintinline{latex}{{...}})
+            \end{itemize}
+
+        \item \mintinline{latex}{\caption}:
+            \begin{itemize}
+                \item Adds a caption below the image
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Figures}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\columnwidth]{Figures/sps_logo}
+        \caption{Logo IEEE SPS.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Figure Placement}
+    \begin{itemize}
+        \item LaTeX handles figure placement automatically for optimal layout
+        \item Common placement specifiers:
+            \begin{itemize}
+                \item \mintinline{latex}{h} – here
+                \item \mintinline{latex}{t} – top
+                \item \mintinline{latex}{b} – bottom
+                \item \mintinline{latex}{!} – override internal parameters
+            \end{itemize}
+        \item Messing with Figure placement can disrupt the document flow!
+        \item Letting \LaTeX \ decide ensures the professional appearance
+        \item Just accept that \LaTeX \ knows better, this is not MS Word and that is a bonus!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{References}
+    \begin{minted}{tex}
+
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\columnwidth]{Figures/sps_logo}
+                \caption{Logo IEEE SPS.}
+                \label{fig:sps}
+            \end{figure}
+
+            Figure~\ref{fig:sps} is the SPS logo!
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{References}
+    \begin{itemize}
+        \item \mintinline{tex}{\label{...}} assigns a label to an element (e.g., figures, tables, sections)
+        \begin{itemize}
+            \item We can call a figure by a name
+            \item No matter the order, it will always be the right figure!
+            \item It is a breeze to create lists of figure
+            \item Labels for figure usually start with \mintinline{tex}{fig:}
+        \end{itemize}
+        \item \mintinline{tex}{\ref{...}} references the labelled element
+        \item Using \mintinline{tex}{~} ensures that "Figure" and its number stay on the same line
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{References}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\columnwidth]{Figures/sps_logo}
+        \caption{Logo IEEE SPS.}
+        \label{fig:sps}
+    \end{figure}
+
+    Figure~\ref{fig:sps} is the SPS logo!
+\end{frame}
+
+\begin{frame}[fragile]{Packages and Clever References}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+        \usepackage{cleveref}
+
+        \begin{document}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\columnwidth]{Figures/sps_logo}
+                \caption{Logo IEEE SPS.}
+                \label{fig:sps}
+            \end{figure}
+
+            \cref{fig:sps} is the SPS logo!
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Packages and Clever References}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.3\columnwidth]{Figures/sps_logo}
+        \caption{It is yet another IEEE SPS logo.}
+        \label{fig:sps2}
+    \end{figure}
+
+    Both Figure~\ref{fig:sps} and \cref{fig:sps2} are the SPS logo!
+\end{frame}
+
+\begin{frame}[fragile]{Packages and Clever References}
+    \begin{itemize}
+        \item \mintinline{tex}{\usepackage{..}} loads extra functionalities, packages made by the communities (basically, libraries)
+        \item We are importing the \mintinline{tex}{cleveref} package
+        \begin{itemize}
+            \item \mintinline{tex}{\cref{...}} automatically includes the type of the referenced object (e.g., "Figure", "Table") without manual text
+            \item Using \mintinline{tex}{\cref{fig:sps}} produces "Figure 1" automatically, maintaining proper spacing and formatting
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \section{Equations}
 
-\begin{frame}{Equations}
-
+% New Topic: The Equation Environment
+\begin{frame}[fragile]{The Equation Environment}
     \begin{itemize}
-        \item Gauss's Law
-        \begin{equation*}
-            \nabla \cdot \overset{\rightarrow}{\textbf{E}} = \frac{\rho}{\epsilon_0}
-        \end{equation*}
-        \item Gauss's Law for Magnetism
-        \begin{equation*}
-            \nabla \cdot \overset{\rightarrow}{\textbf{B}} = 0
-        \end{equation*}
-        \item Faraday's Law
-        \begin{equation*}
-            \nabla \times \overset{\rightarrow}{\textbf{E}}=- \frac{\partial \overset{\rightarrow}{\textbf{B}}}{\partial t}
-        \end{equation*}
-        \item Ampère's Law
-        \begin{equation*}
-            \nabla \times \overset{\rightarrow}{\textbf{B}}=\mu_0\overset{\rightarrow}{\textbf{J}}+\mu_0\epsilon_0\frac{\partial \overset{\rightarrow}{\textbf{E}}}{\partial t}
-        \end{equation*}
+        \item Use the \mintinline{latex}{equation} environment to display numbered equations.
+        \item Automatically centres the equation and assigns a number for referencing.
+        \item Syntax:
+            \begin{minted}{latex}
+                \begin{equation}
+                    % Your equation here
+                \end{equation}
+            \end{minted}
     \end{itemize}
-    
 \end{frame}
 
-\section{Images}
+\begin{frame}[fragile]{The Equation Environment}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
 
-\begin{frame}{Images}
+        \begin{document}
+            Here is a simple equation:
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{template/sps_logo.png}
-\end{figure}
-
+            \begin{equation}
+                E = mc^2
+            \end{equation}
+        \end{document}
+    \end{minted}
 \end{frame}
 
-\subsection{Subfigures}
+% New Topic: Mathematical Notation Basics
+\begin{frame}[fragile]{Mathematical Notation Basics}
+    \begin{itemize}
+        \item Greek Letters: \mintinline{latex}{\alpha} ($\alpha$), \mintinline{latex}{\beta} ($\beta$),\mintinline{latex}{\delta} ($\delta$), \mintinline{latex}{\Delta} ($\Delta$), etc.
+        \item Operations: \mintinline{latex}{+} ($+$), \mintinline{latex}{-} ($-$), \mintinline{latex}{\times} ($\times$), \mintinline{latex}{\cdot} ($\cdot$)
+        \item Fractions: \mintinline{latex}{\frac{a}{b}} \ \ \ $\left ( \frac{a}{b} \right )$
+        \item Subscript: \mintinline{latex}{a_{i}} \ \ \ $\left ( a_i \right )$
+        \item Superscript: \mintinline{latex}{x^{2}} \ \ \ $\left ( x^2 \right )$
+        \item Summations: \mintinline{latex}{\sum_{i=1}^{n} x_i} \ \ \  $\left ( \sum_{i=1}^{n} x_i \right )$
+        \item Integrals: \mintinline{latex}{\int_{a}^{b} f(x) \, dx} \ \ \ $\left ( \int_{a}^{b} f(x) \, dx \right )$
+    \end{itemize}
+\end{frame}
 
-\begin{frame}{Subfigures}
+\begin{frame}[fragile]{Mathematical Notation Basics -- Challenge}
+    \begin{equation}
+        \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
+    \end{equation}
+\end{frame}
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.45\linewidth}
+\begin{frame}[fragile]{Referencing Equations}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+        \usepackage{cleveref}
+
+        \begin{document}
+            The \cref{eq:std} shows the standard deviation:
+
+            \begin{equation}
+                \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
+                \label{eq:std}
+            \end{equation}
+
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Referencing Equations}
+    The \cref{eq:std} shows the standard deviation:
+
+    \begin{equation}
+        \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
+        \label{eq:std}
+    \end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Inline Equations}
+    \begin{itemize}
+        \item Embed mathematical expressions within text using \mintinline{latex}{$...$}
+        \item For inline equations and symbols
+        \item Supports standard \LaTeX \ math syntax
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Inline Equations}
+    \begin{minted}{tex}
+        \documentclass[12pt]{article}
+
+        \begin{document}
+            According to Newton's second law, the force applied
+            to an object is given by $F = ma$, where:
+            \begin{itemize}
+                \item $F$ is the force in Newtons ($N$)
+                \item $m$ is the mass in kilograms ($kg$)
+                \item $a$ is the acceleration in meters per
+                      second squared ($m \cdot s^{-2}$)
+            \end{itemize}
+            This equation is fundamental in physics.
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Inline Equations}
+    According to Newton's second law, the force applied to an object is given by $F = ma$, where:
+    \begin{itemize}
+        \item $F$ is the force in Newtons ($N$)
+        \item $m$ is the mass in kilograms ($kg$)
+        \item $a$ is the acceleration in meters per second squared ($m \cdot s^{-2}$)
+    \end{itemize}
+
+    This equation is fundamental in physics.
+\end{frame}
+
+\section{Tables}
+
+\begin{frame}{Comparing Tables: \texttt{booktabs} vs. Regular Tables}
+    \begin{center}
+        Which table looks better?
+    \end{center}
+    \begin{columns}[T] % Align columns at the top
+        \begin{column}{0.48\textwidth}
+            \begin{table}
+                \centering
+                \caption{Regular style table.}
+                \vspace{0.5em}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+                    \hline
+                    Length & 10 & m \\
+                    \hline
+                    Width  &  5 & m \\
+                    \hline
+                    Height &  3 & m \\
+                    \hline
+                \end{tabular}
+            \end{table}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{table}
+                \centering
+                \caption{Booktabs style table.}
+                \begin{tabular}{ccc}
+                    \toprule
+                    \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+                    \midrule
+                    Length & 10 & m \\
+                    Width  &  5 & m \\
+                    Height &  3 & m \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Why booktabs?}
+    \begin{itemize}
+        \item Developed to improve the quality of tables in \LaTeX \ documents
+        \item Aimed at enhancing readability and visual appeal of tables.
+        \item \textbf{Best Practices:}
+            \begin{itemize}
+                \item Avoid using vertical lines; rely on spacing and horizontal rules
+                \item Maintain consistency in table design throughout the document
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Basic Tables}
+    \begin{minted}[fontsize=\scriptsize]{tex}
+        \documentclass[12pt]{article}
+        \usepackage{cleveref}
+        \usepackage{booktabs}
+
+        \begin{document}
+            \begin{table}
+                \centering
+                \caption{Basic table.}
+                \label{tab:basic}
+                \begin{tabular}{l|cr}
+                    \toprule
+                    \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+                    \midrule
+                    Length             & 10             & m             \\
+                    Width              &  5             & m             \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+            \Cref{tab:basic} is a basic table.
+        \begin{end}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Basic Tables}
+    \begin{itemize}
+        \item \mintinline{tex}{\begin{table}} ... \mintinline{tex}{\end{table}}
+        \begin{itemize}
+            \item Environment that holds the caption, label, and the actual table
+        \end{itemize}
+        \item \mintinline{tex}{\begin{tabular}} ... \mintinline{tex}{\end{tabular}}
+        \begin{itemize}
+            \item Defines the table's structure
+            \item Column alignment specified within curly braces:
+                \begin{itemize}
+                    \item \texttt{l}: Left-aligned
+                    \item \texttt{c}: Center-aligned
+                    \item \texttt{r}: Right-aligned
+                    \item \texttt{|}: Vertical lines (use sparingly with \texttt{booktabs})
+                \end{itemize}
+        \end{itemize}
+    \item \mintinline{tex}{&} separates columns
+    \item \mintinline{tex}{\\} ends rows
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Basic Tables}
+    \begin{itemize}
+        \item \mintinline{tex}{\toprule}: Thick line at the top
+        \item \mintinline{tex}{\midrule}: Thin line between header and data
+        \item \mintinline{tex}{\bottomrule}: Thick line at the bottom
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Tables}
+    \begin{table}
         \centering
-        \includegraphics[width=\linewidth]{template/sps_logo.png}
-    \end{subfigure}
-    \hfill 
-    \begin{subfigure}[b]{0.45\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{template/sps_logo.png}
-    \end{subfigure}
-\end{figure}
-
-
+        \caption{Basic table.}
+        \label{tab:basic}
+        \begin{tabular}{l|cr}
+            \toprule
+            \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+            \midrule
+            Length & 10 & m \\
+            Width  &  5 & m \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \Cref{tab:basic} is a basic table.
 \end{frame}
 
-
-\begin{frame}{Tables}
+\begin{frame}{Basic Tables -- Challenge}
     \begin{table}[ht]
         \begin{tabular}{l|cc}
         \toprule
@@ -171,9 +688,191 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidun
     \end{table}
 \end{frame}
 
+\begin{frame}[fragile]{Advanced Tables}
+    \begin{itemize}
+        \item As you probably can conclude, tables are not \LaTeX \ strong suit
+        \item \url{https://www.tablesgenerator.com}
+    \end{itemize}
+\end{frame}
 
+\section{Text Structure}
 
-\section{Thank you}
+% Frame introducing Chapters, Sections, Subsections, and Subsubsections
+\begin{frame}[fragile]{Text Structure}
+    \begin{itemize}
+        \item \textbf{Chapter} (\mintinline{tex}{\chapter{Chapter Name}}) - \textit{(Only in certain document classes)}
+        \item \textbf{Section} (\mintinline{tex}{\section{Section Name}})
+        \item \textbf{Subsection} (\mintinline{tex}{\subsection{Subsection Name}})
+        \item \textbf{Subsubsection} (\mintinline{tex}{\subsubsection{Subsubsection Name}})
+        \item It is possible to associate a label to each of these, for referencing
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Text Structure}
+    \label{sl:structure}
+    \begin{minted}[fontsize=\scriptsize]{tex}
+        \documentclass{article}
+        \usepackage{cleveref}
+
+        \begin{document}
+            \section{Introduction}
+            \label{sec:intro}
+            This is the introduction section.
+
+            \section{Methodology}
+            \label{sec:method}
+            Refer to \cref{sec:intro} for the introduction.
+
+            \subsection{Data Collection}
+            \label{sec:data}
+            Details about data collection for \cref{sec:method}.
+
+            \subsubsection{Survey Design}
+            \label{sec:survey}
+            Information on survey design.
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\section{Templates and Citations}
+
+\begin{frame}[fragile]{IEEE Conference Template}
+    \begin{itemize}
+        \item \url{https://www.overleaf.com/latex/templates/ieee-conference-template/grfzhhncsfqn}
+        \item Open as Template
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Organising a Project}
+    \begin{itemize}
+        \item Erase all pdfs
+        \item Change \mintinline{tex}{conference_101719.tex} to \mintinline{tex}{main.tex}
+    \item Erase everything between \mintinline{tex}{\end{IEEEkeywords}} and \mintinline{tex}{\end{document}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Organising a Project}
+    \begin{itemize}
+        \item Create a new file called \mintinline{tex}{body.tex}
+        \item Paste the code in slide \ref{sl:structure} inside the \mintinline{tex}{document} environment into it
+        \item Write \mintinline{tex}{\input{body.tex}} bellow \mintinline{tex}{\end{IEEEkeywords}}
+        \begin{itemize}
+            \item ´´Pastes'' the content of a tex file inside another
+            \item We can easily write the content in \mintinline{tex}{body.tex} and change template, by using \mintinline{tex}{\input{body}}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Citations and Bibtex}
+    \begin{itemize}
+        \item Create a new file called \mintinline{tex}{citations.bib}
+        \item Add the following two lines, below the \mintinline{tex}{\input{body}} line
+    \end{itemize}
+    \begin{minted}{tex}
+        % This is the citations style
+        \bibliographystyle{IEEEtran}
+        % This is the file where the citations are stored
+        \bibliography{citations}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Citations and Bibtex}
+    \begin{itemize}
+        \item Paste bibtex references inside \mintinline{tex}{citations.bib}
+    \end{itemize}
+    \begin{minted}[fontsize=\scriptsize]{bib}
+        @INPROCEEDINGS{Filipe2021,
+          author={Filipe, Jose N. and Carreira, J. and Tavora, Luis M. N.
+                  and de Faria, Sergio M. M. and Navarro, Antonio and Assuncao, Pedro A. A.},
+          booktitle={2021 Telecoms Conference (ConfTELE)},
+          title={Tree-Based Ensemble Methods for Complexity Reduction of VVC Intra Coding},
+          year={2021},
+          volume={},
+          number={},
+          pages={1-6},
+          doi={10.1109/ConfTELE50222.2021.9435476}
+        }
+    \end{minted}
+    \begin{itemize}
+        \item \mintinline{tex}{Filipe2021} is the key we are going to use to cite this workshop
+        \item It can be changed to whatever we want
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Citations and Bibtex}
+    \begin{itemize}
+        \item Use \mintinline{tex}{\cite{...}} to cite a work
+        \item For instance, add the following to \mintinline{tex}{body.tex}
+    \end{itemize}
+    \begin{minted}{tex}
+        This work~\cite{Filipe2021} is not about \LaTeX.
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Citations and Bibtex}
+    \begin{itemize}
+        \item Order in \mintinline{tex}{bib} file does not matter
+        \item References are order according with the rules in the bibliography style (order of appearance, alphabetically, etc)
+        \item Numbers are dynamically assigned by \LaTeX \ no need to worry about them at all!!!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{IPL Template}
+    \begin{itemize}
+        \item \url{https://www.overleaf.com/latex/templates/polytechnic-university-of-leiria-thesis-template/tqgbrncfhwgt}
+        \item Open as Template
+    \end{itemize}
+\end{frame}
+
+\section{Presentations and Beamer}
+
+\begin{frame}{What is Beamer?}
+    \begin{itemize}
+        \item \textbf{Beamer} is a \LaTeX \ class for creating presentations
+        \item It allows you to create slides with consistent styling and structure
+        \item Utilizes frames to organize content into individual slides
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Basic Presentation}
+    \begin{minted}{tex}
+        \documentclass{beamer}
+
+        \begin{document}
+
+            \begin{frame}{Slide Title}
+                Your content goes here.
+            %\end{frame}
+
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{Slightly Less Basic Presentation}
+    \begin{minted}[fontsize=\scriptsize]{tex}
+        \documentclass{beamer}
+        \usetheme{Madrid}
+
+        \title{Introduction to LaTeX Beamer}
+        \author{Jane Doe}
+        \institute{Engineering Department, XYZ University}
+        \date{\today}
+
+        \begin{document}
+
+            \begin{frame}
+                \titlepage
+            % \end{frame}
+
+            \begin{frame}{Slide Title}
+                Your content goes here.
+            % \end{frame}
+
+        \end{document}
+    \end{minted}
+\end{frame}
+
+\section{Conclusion}
 
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{template/beamer_sps_final.pdf}}
@@ -183,8 +882,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat tincidun
 {\Huge\usebeamercolor[fg]{frametitle}\textbf{Thank You}}
 \end{frame}
 }
-
-
 
 
 \end{document}
